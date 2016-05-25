@@ -19,7 +19,7 @@ public class Notifier {
   public void notifyListener(Message message, String listenerType){
       if (listeners.containsKey(listenerType)){
         Sender sender =listeners.get(listenerType);
-        sender.notify(message);
+        sender.send(message);
       }
   }
 }

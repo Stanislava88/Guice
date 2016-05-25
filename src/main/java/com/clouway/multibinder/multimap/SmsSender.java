@@ -4,7 +4,7 @@ package com.clouway.multibinder.multimap;
  * @author Slavi Dichkov (slavidichkof@gmail.com)
  */
 public class SmsSender implements Sender {
-  public boolean notify(Message message) {
+  public boolean send(Message message) {
     if (message.getNumber()!=0){
       System.out.println("this is message from sms sender: "+message.getMessage());
     }
