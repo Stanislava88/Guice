@@ -12,7 +12,7 @@ public class Demo {
 
     System.out.println("Injector is create");
 
-    LazyUser lazyUser1 =injector.getInstance(LazyUser.class);
-    EagerUser eagerUser1 =injector.getInstance(EagerUser.class);
+    Eager lazy =injector.getInstance(Eager.class);
+    Lazy eager =injector.getInstance(Lazy.class);
   }
 }
