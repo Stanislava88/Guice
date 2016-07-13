@@ -8,7 +8,7 @@ import com.google.inject.Injector;
  */
 public class Demo {
   public static void main(String[] args) {
-    Injector injector = Guice.createInjector(new UserEmailCheckerModule(), new UserLoggerModule(), new UserAccountCreatorModule());
+    Injector injector = Guice.createInjector(new MainModule());
     UserChangeHandler userChangeHandler = injector.getInstance(UserChangeHandler.class);
     userChangeHandler.bla(new User("Kristiyan", "Petkov", "kristiqn.l.petkov@abv.bg", "9191919191"));
   }
