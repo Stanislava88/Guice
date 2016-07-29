@@ -1,8 +1,8 @@
-package com.clouway.multibindings;
+package com.clouway.mapbindings;
 
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
-public interface Fruit {
+public interface Vehicle {
   String getType();
 }
