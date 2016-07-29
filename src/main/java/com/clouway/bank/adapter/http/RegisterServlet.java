@@ -7,6 +7,9 @@ import com.clouway.bank.core.UserRepository;
 import com.clouway.bank.core.Validator;
 import com.clouway.bank.utils.HtmlHelper;
 import com.clouway.bank.utils.HtmlTemplate;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +21,7 @@ import java.io.PrintWriter;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class RegisterServlet extends HttpServlet {
     private final UserRepository repository;
     private final Validator<User> validator;
@@ -25,6 +29,7 @@ public class RegisterServlet extends HttpServlet {
     private HtmlTemplate template;
     private final AccountRepository accountRepository;
 
+    @Inject
     public RegisterServlet(UserRepository repository, Validator<User> validator, AccountRepository accountRepository) {
         this.repository = repository;
         this.validator = validator;

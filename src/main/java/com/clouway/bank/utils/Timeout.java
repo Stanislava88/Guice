@@ -1,6 +1,8 @@
 package com.clouway.bank.utils;
 
 import com.clouway.bank.core.CurrentTime;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -11,6 +13,7 @@ import java.util.Date;
 public class Timeout implements CurrentTime {
   private final int minute;
 
+  @Inject
   public Timeout(int minute) {
     this.minute = minute;
   }

@@ -1,5 +1,7 @@
 package com.clouway.bank.utils;
 
+import com.google.inject.Inject;
+
 import javax.servlet.http.Cookie;
 
 /**
@@ -8,6 +10,7 @@ import javax.servlet.http.Cookie;
 public class SessionIdFinder {
   private final String sidCookie;
 
+  @Inject
   public SessionIdFinder(String sidCookie) {
     this.sidCookie = sidCookie;
   }

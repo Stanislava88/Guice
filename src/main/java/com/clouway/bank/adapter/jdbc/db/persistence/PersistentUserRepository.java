@@ -4,6 +4,7 @@ import com.clouway.bank.core.ConnectionException;
 import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.User;
 import com.clouway.bank.core.UserRepository;
+import com.google.inject.Inject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 public class PersistentUserRepository implements UserRepository {
   private Provider<Connection> connectionProvider;
 
+  @Inject
   public PersistentUserRepository(Provider<Connection> connectionProvider) {
     this.connectionProvider = connectionProvider;
   }

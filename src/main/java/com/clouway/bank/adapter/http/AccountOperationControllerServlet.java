@@ -7,6 +7,9 @@ import com.clouway.bank.core.TransactionRepository;
 import com.clouway.bank.core.Validator;
 import com.clouway.bank.utils.SessionIdFinder;
 import com.google.common.base.Strings;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +20,7 @@ import java.io.IOException;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class AccountOperationControllerServlet extends HttpServlet {
   private final Validator validator;
   private final AccountRepository accountRepository;
@@ -24,7 +28,8 @@ public class AccountOperationControllerServlet extends HttpServlet {
   private final SessionIdFinder sessionIdFinder;
   private final TransactionRepository transactionRepository;
 
-  public AccountOperationControllerServlet(Validator validator, AccountRepository accountRepository, SessionRepository sessionRepository, SessionIdFinder sessionIdFinder, TransactionRepository transactionRepository) {
+  @Inject
+  public AccountOperationControllerServlet(@Named("amountValidator") Validator validator, AccountRepository accountRepository, SessionRepository sessionRepository, SessionIdFinder sessionIdFinder, TransactionRepository transactionRepository) {
     this.validator = validator;
     this.accountRepository = accountRepository;
     this.sessionRepository = sessionRepository;

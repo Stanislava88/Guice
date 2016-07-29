@@ -6,6 +6,7 @@ import com.clouway.bank.core.ConnectionException;
 import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.RowGetter;
 import com.clouway.bank.utils.DatabaseHelper;
+import com.google.inject.Inject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 public class PersistentAccountRepository implements AccountRepository {
   private final Provider<Connection> provider;
 
+  @Inject
   public PersistentAccountRepository(Provider<Connection> provider) {
     this.provider = provider;
   }

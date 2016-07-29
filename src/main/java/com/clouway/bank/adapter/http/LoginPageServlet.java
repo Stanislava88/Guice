@@ -2,6 +2,7 @@ package com.clouway.bank.adapter.http;
 
 import com.clouway.bank.utils.HtmlHelper;
 import com.clouway.bank.utils.HtmlTemplate;
+import com.google.inject.Singleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +14,7 @@ import java.io.PrintWriter;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class LoginPageServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

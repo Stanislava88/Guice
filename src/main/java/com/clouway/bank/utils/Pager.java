@@ -2,6 +2,8 @@ package com.clouway.bank.utils;
 
 import com.clouway.bank.core.Transaction;
 import com.clouway.bank.core.TransactionRepository;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 import java.util.List;
 
@@ -13,7 +15,8 @@ public class Pager {
   private int pageSize;
   private final String email;
 
-  public Pager(TransactionRepository transactionRepository, int pageSize, String email) {
+  @Inject
+  public Pager(TransactionRepository transactionRepository, @Named("pageSize") int pageSize, String email) {
     this.email = email;
     this.transactionRepository = transactionRepository;
     this.pageSize = pageSize;

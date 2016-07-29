@@ -4,6 +4,8 @@ import com.clouway.bank.core.Session;
 import com.clouway.bank.core.SessionRepository;
 import com.clouway.bank.core.CurrentTime;
 import com.google.common.base.Optional;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 import javax.servlet.*;
 import javax.servlet.http.Cookie;
@@ -14,10 +16,12 @@ import java.io.IOException;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class SecurityFilter implements Filter {
   private final SessionRepository sessionRepository;
   private final CurrentTime time;
 
+  @Inject
   public SecurityFilter(SessionRepository sessionRepository, CurrentTime time) {
     this.sessionRepository = sessionRepository;
     this.time = time;

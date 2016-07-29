@@ -1,6 +1,7 @@
 package com.clouway.bank.adapter.jdbc.db.persistence;
 
 import com.clouway.bank.core.*;
+import com.google.inject.Inject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +18,7 @@ public class PersistentTransactionRepository implements TransactionRepository {
   private final Provider<Connection> provider;
   private final CurrentDate date;
 
+  @Inject
   public PersistentTransactionRepository(AccountRepository accountRepository, Provider<Connection> provider, CurrentDate date) {
     this.accountRepository = accountRepository;
     this.provider = provider;

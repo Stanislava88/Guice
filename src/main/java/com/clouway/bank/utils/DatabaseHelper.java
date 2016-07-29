@@ -3,6 +3,7 @@ package com.clouway.bank.utils;
 import com.clouway.bank.core.ConnectionException;
 import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.RowGetter;
+import com.google.inject.Inject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 public class DatabaseHelper<T> {
   private final Provider<Connection> provider;
 
+  @Inject
   public DatabaseHelper(Provider<Connection> provider) {
     this.provider = provider;
   }
@@ -42,6 +44,7 @@ public class DatabaseHelper<T> {
 
       return (T) getter.getRows(resultSet);
     } catch (SQLException e) {
+      e.printStackTrace();
       throw new ConnectionException("");
     }
   }

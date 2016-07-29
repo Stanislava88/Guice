@@ -6,7 +6,8 @@ import com.clouway.bank.core.SessionRepository;
 import com.clouway.bank.utils.HtmlHelper;
 import com.clouway.bank.utils.HtmlTemplate;
 import com.clouway.bank.utils.SessionIdFinder;
-import com.google.common.base.Strings;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +19,13 @@ import java.io.PrintWriter;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class AccountPageServlet extends HttpServlet {
   private final SessionRepository sessionRepository;
   private final AccountRepository accountRepository;
   private final SessionIdFinder sessionIdFinder;
 
+  @Inject
   public AccountPageServlet(SessionRepository repository, AccountRepository accountRepository, SessionIdFinder sessionIdFinder) {
     this.sessionRepository = repository;
     this.accountRepository = accountRepository;

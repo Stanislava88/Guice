@@ -5,6 +5,7 @@ import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.Session;
 import com.clouway.bank.core.SessionRepository;
 import com.google.common.base.Optional;
+import com.google.inject.Inject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 public class PersistentSessionRepository implements SessionRepository {
   private final Provider<Connection> connectionProvider;
 
+  @Inject
   public PersistentSessionRepository(Provider<Connection> provider) {
     this.connectionProvider = provider;
   }

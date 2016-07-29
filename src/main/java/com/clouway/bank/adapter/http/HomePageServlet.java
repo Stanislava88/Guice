@@ -4,6 +4,8 @@ import com.clouway.bank.core.SessionRepository;
 import com.clouway.bank.utils.HtmlHelper;
 import com.clouway.bank.utils.HtmlTemplate;
 import com.google.common.base.Strings;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +17,11 @@ import java.io.PrintWriter;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class HomePageServlet extends HttpServlet {
     private SessionRepository sessionRepository;
 
+    @Inject
     public HomePageServlet(SessionRepository sessionRepository) {
         this.sessionRepository = sessionRepository;
     }

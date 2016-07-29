@@ -8,6 +8,9 @@ import com.clouway.bank.core.User;
 import com.clouway.bank.core.UserRepository;
 import com.clouway.bank.core.Validator;
 import com.google.common.base.Strings;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -19,6 +22,7 @@ import java.io.IOException;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class LoginControllerServlet extends HttpServlet {
   private final UserRepository userRepository;
   private final SessionRepository sessionRepository;
@@ -26,6 +30,7 @@ public class LoginControllerServlet extends HttpServlet {
   private final CurrentTime time;
   private final IdGenerator generator;
 
+  @Inject
   public LoginControllerServlet(UserRepository userRepository, SessionRepository sessionRepository, Validator<User> validator, CurrentTime time, IdGenerator generator) {
     this.userRepository = userRepository;
     this.sessionRepository = sessionRepository;

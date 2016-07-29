@@ -9,6 +9,9 @@ import com.clouway.bank.utils.RowBuilder;
 import com.clouway.bank.utils.Pager;
 import com.clouway.bank.utils.SessionIdFinder;
 import com.google.common.base.Strings;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,13 +25,15 @@ import java.util.List;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
+@Singleton
 public class TransactionHistoryPageServlet extends HttpServlet {
   private final TransactionRepository transactionRepository;
   private int pageSize;
   private final SessionRepository sessionRepository;
   private final SessionIdFinder sessionIdFinder;
 
-  public TransactionHistoryPageServlet(TransactionRepository transactionRepository, int pageSize, SessionRepository sessionRepository, SessionIdFinder sessionIdFinder) {
+  @Inject
+  public TransactionHistoryPageServlet(TransactionRepository transactionRepository, @Named("pageSize") int pageSize, SessionRepository sessionRepository, SessionIdFinder sessionIdFinder) {
     this.transactionRepository = transactionRepository;
     this.pageSize = pageSize;
     this.sessionRepository = sessionRepository;
