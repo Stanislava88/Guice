@@ -30,16 +30,6 @@ public class BankGuiceModule extends AbstractModule {
 
     bind(IdGenerator.class).to(SessionIdGenerator.class);
 
-    bind(String.class)
-            .annotatedWith(Names.named("db"))
-            .toInstance("jdbc:postgresql://localhost/bank");
-    bind(String.class)
-            .annotatedWith(Names.named("user"))
-            .toInstance("postgres");
-    bind(String.class)
-            .annotatedWith(Names.named("password"))
-            .toInstance("clouway.com");
-
     bind(Integer.class)
             .annotatedWith(Names.named("pageSize"))
             .toInstance(5);

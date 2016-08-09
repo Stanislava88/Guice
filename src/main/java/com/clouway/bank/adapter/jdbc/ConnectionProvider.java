@@ -18,7 +18,7 @@ public class ConnectionProvider implements Provider<Connection> {
   private final String password;
 
   @Inject
-  public ConnectionProvider(@Named("db") String db, @Named("user") String user, @Named("password") String password) {
+  public ConnectionProvider(String db, String user, String password) {
     this.db = db;
     this.user = user;
     this.password = password;
