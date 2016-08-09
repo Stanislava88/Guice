@@ -15,14 +15,13 @@ import java.sql.SQLException;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
-public class PersistentGuiceModule extends AbstractModule {
+public class JdbcAdapterModule extends AbstractModule {
   @Override
   protected void configure() {
     bind(AccountRepository.class).to(PersistentAccountRepository.class);
     bind(SessionRepository.class).to(PersistentSessionRepository.class);
     bind(TransactionRepository.class).to(PersistentTransactionRepository.class);
     bind(UserRepository.class).to(PersistentUserRepository.class);
-
   }
 
   @Provides

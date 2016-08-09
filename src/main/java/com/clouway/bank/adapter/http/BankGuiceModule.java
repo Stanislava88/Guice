@@ -1,6 +1,6 @@
 package com.clouway.bank.adapter.http;
 
-import com.clouway.bank.adapter.jdbc.db.persistence.PersistentGuiceModule;
+import com.clouway.bank.adapter.jdbc.db.persistence.JdbcAdapterModule;
 import com.clouway.bank.core.CurrentDate;
 import com.clouway.bank.core.CurrentDateImplementation;
 import com.clouway.bank.core.CurrentTime;
@@ -22,7 +22,7 @@ import com.google.inject.name.Names;
 public class BankGuiceModule extends AbstractModule {
   @Override
   protected void configure() {
-    install(new PersistentGuiceModule());
+    install(new JdbcAdapterModule());
 
     bind(CurrentDate.class).to(CurrentDateImplementation.class);
 
