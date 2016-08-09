@@ -25,7 +25,7 @@ public class JdbcAdapterModule extends AbstractModule {
   }
 
   @Provides
-  Connection provideConnection() {
+  Connection getConnection() {
     try {
       return DriverManager.getConnection("jdbc:postgresql://localhost/bank", "postgres", "clouway.com");
     } catch (SQLException e) {

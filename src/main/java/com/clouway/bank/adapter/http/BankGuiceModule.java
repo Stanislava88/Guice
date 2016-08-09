@@ -38,7 +38,7 @@ public class BankGuiceModule extends AbstractModule {
   }
 
   @Provides
-  Validator<User> provideUserValidator() {
+  Validator<User> getUserValidator() {
     return new UserValidator();
   }
 
