@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class DatabaseHelper<T> {
   private final Provider<Connection> provider;
 
-  @Inject
   public DatabaseHelper(Provider<Connection> provider) {
     this.provider = provider;
   }

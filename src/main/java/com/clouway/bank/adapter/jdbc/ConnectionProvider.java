@@ -3,7 +3,6 @@ package com.clouway.bank.adapter.jdbc;
 import com.clouway.bank.core.ConnectionException;
 import com.clouway.bank.core.Provider;
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

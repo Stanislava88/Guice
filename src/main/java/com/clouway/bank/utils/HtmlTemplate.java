@@ -1,8 +1,5 @@
 package com.clouway.bank.utils;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,7 +10,6 @@ public class HtmlTemplate {
   private final String html;
   public final Map<String, String> placeholders = new ConcurrentHashMap<String, String>();
 
-  @Inject
   public HtmlTemplate(String html) {
     this.html = html;
   }
