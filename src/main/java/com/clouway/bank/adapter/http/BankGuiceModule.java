@@ -2,6 +2,7 @@ package com.clouway.bank.adapter.http;
 
 import com.clouway.bank.adapter.jdbc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentAccountRepository;
+import com.clouway.bank.adapter.jdbc.db.persistence.PersistentGuiceModule;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentSessionRepository;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentTransactionRepository;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentUserRepository;
@@ -21,10 +22,7 @@ import com.google.inject.name.Names;
 public class BankGuiceModule extends AbstractModule {
   @Override
   protected void configure() {
-    bind(AccountRepository.class).to(PersistentAccountRepository.class);
-    bind(SessionRepository.class).to(PersistentSessionRepository.class);
-    bind(TransactionRepository.class).to(PersistentTransactionRepository.class);
-    bind(UserRepository.class).to(PersistentUserRepository.class);
+    install(new PersistentGuiceModule());
 
     bind(CurrentDate.class).to(CurrentDateImplementation.class);
 
