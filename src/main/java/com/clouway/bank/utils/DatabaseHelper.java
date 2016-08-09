@@ -1,9 +1,8 @@
 package com.clouway.bank.utils;
 
 import com.clouway.bank.core.ConnectionException;
-import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.RowGetter;
-import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

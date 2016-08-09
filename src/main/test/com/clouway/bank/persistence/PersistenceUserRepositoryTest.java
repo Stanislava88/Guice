@@ -1,20 +1,18 @@
 package com.clouway.bank.persistence;
 
-import com.clouway.bank.adapter.jdbc.ConnectionProvider;
-import com.clouway.bank.core.ConnectionException;
-import com.clouway.bank.core.Provider;
+import com.clouway.bank.jdbc.doc.ConnectionProvider;
+import com.clouway.bank.adapter.jdbc.db.persistence.PersistentUserRepository;
 import com.clouway.bank.core.User;
 import com.clouway.bank.core.UserRepository;
-import com.clouway.bank.adapter.jdbc.db.persistence.PersistentUserRepository;
-import com.clouway.bank.validator.UserValidator;
+import com.google.inject.Provider;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.*;
+import java.sql.Connection;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)

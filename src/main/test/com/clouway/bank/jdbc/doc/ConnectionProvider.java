@@ -1,8 +1,8 @@
-package com.clouway.bank.adapter.jdbc;
+package com.clouway.bank.jdbc.doc;
 
 import com.clouway.bank.core.ConnectionException;
-import com.clouway.bank.core.Provider;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

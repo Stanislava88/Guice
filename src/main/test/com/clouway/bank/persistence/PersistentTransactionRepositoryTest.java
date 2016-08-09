@@ -1,14 +1,14 @@
 package com.clouway.bank.persistence;
 
-import com.clouway.bank.adapter.jdbc.ConnectionProvider;
+import com.clouway.bank.jdbc.doc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentTransactionRepository;
 import com.clouway.bank.core.Account;
 import com.clouway.bank.core.AccountRepository;
 import com.clouway.bank.core.CurrentDate;
-import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.Transaction;
 import com.clouway.bank.core.TransactionRepository;
 import com.google.common.collect.Lists;
+import com.google.inject.Provider;
 import org.jmock.Expectations;
 import org.jmock.auto.Mock;
 import org.jmock.integration.junit4.JUnitRuleMockery;
@@ -47,7 +47,7 @@ public class PersistentTransactionRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    provider = new ConnectionProvider("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
+    provider = (Provider<Connection>) new ConnectionProvider("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
 
     transactionRepository = new PersistentTransactionRepository(accountRepository, provider, date);
 

@@ -1,10 +1,10 @@
 package com.clouway.bank.persistence;
 
-import com.clouway.bank.adapter.jdbc.ConnectionProvider;
+import com.clouway.bank.jdbc.doc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentAccountRepository;
 import com.clouway.bank.core.Account;
 import com.clouway.bank.core.AccountRepository;
-import com.clouway.bank.core.Provider;
+import com.google.inject.Provider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

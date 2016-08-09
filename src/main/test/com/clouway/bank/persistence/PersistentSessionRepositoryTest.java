@@ -1,8 +1,8 @@
 package com.clouway.bank.persistence;
 
-import com.clouway.bank.adapter.jdbc.ConnectionProvider;
+import com.clouway.bank.jdbc.doc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentSessionRepository;
-import com.clouway.bank.core.Provider;
+import com.google.inject.Provider;
 import com.clouway.bank.core.Session;
 import com.clouway.bank.core.SessionRepository;
 import com.clouway.bank.core.CurrentTime;
@@ -35,7 +35,7 @@ public class PersistentSessionRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    provider = new ConnectionProvider("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
+    provider = (Provider<Connection>) new ConnectionProvider("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
 
     statement = provider.get().prepareStatement("truncate table sessions;");
     statement.executeUpdate();

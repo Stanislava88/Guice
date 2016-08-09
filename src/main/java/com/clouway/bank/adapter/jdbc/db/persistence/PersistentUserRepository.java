@@ -1,10 +1,10 @@
 package com.clouway.bank.adapter.jdbc.db.persistence;
 
 import com.clouway.bank.core.ConnectionException;
-import com.clouway.bank.core.Provider;
 import com.clouway.bank.core.User;
 import com.clouway.bank.core.UserRepository;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

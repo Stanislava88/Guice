@@ -1,7 +1,9 @@
 package com.clouway.bank.adapter.jdbc.db.persistence;
 
+
 import com.clouway.bank.core.*;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

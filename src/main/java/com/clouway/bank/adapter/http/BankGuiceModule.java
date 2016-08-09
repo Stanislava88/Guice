@@ -1,8 +1,12 @@
 package com.clouway.bank.adapter.http;
 
-import com.clouway.bank.adapter.jdbc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentGuiceModule;
-import com.clouway.bank.core.*;
+import com.clouway.bank.core.CurrentDate;
+import com.clouway.bank.core.CurrentDateImplementation;
+import com.clouway.bank.core.CurrentTime;
+import com.clouway.bank.core.IdGenerator;
+import com.clouway.bank.core.User;
+import com.clouway.bank.core.Validator;
 import com.clouway.bank.utils.SessionIdFinder;
 import com.clouway.bank.utils.SessionIdGenerator;
 import com.clouway.bank.utils.Timeout;
@@ -11,10 +15,6 @@ import com.clouway.bank.validator.UserValidator;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.name.Names;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
@@ -35,8 +35,6 @@ public class BankGuiceModule extends AbstractModule {
     bind(Validator.class)
             .annotatedWith(Names.named("amountValidator"))
             .toInstance(new AmountValidator());
-
-    bind(Provider.class).to(ConnectionProvider.class);
   }
 
   @Provides
