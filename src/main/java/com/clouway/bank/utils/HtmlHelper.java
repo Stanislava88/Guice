@@ -15,7 +15,7 @@ public class HtmlHelper {
   private final String path;
 
   @Inject
-  public HtmlHelper(@Named("path") String path) {
+  public HtmlHelper(String path) {
     this.path = path;
   }
 
