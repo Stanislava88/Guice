@@ -43,12 +43,12 @@ public class BankGuiceModule extends AbstractModule {
   }
 
   @Provides
-  Validator<User> provideValidator() {
+  Validator<User> provideUserValidator() {
     return new UserValidator();
   }
 
   @Provides
-  CurrentTime getTime() {
+  CurrentTime getCurrentTime() {
     return new Timeout(1);
   }
 
