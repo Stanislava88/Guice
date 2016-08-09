@@ -53,7 +53,7 @@ public class BankGuiceModule extends AbstractModule {
   }
 
   @Provides
-  SessionIdFinder findSession() {
+  SessionIdFinder getSessionId() {
     return new SessionIdFinder("sessionId");
   }
 }
