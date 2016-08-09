@@ -1,6 +1,5 @@
 package com.clouway.bank.persistence;
 
-import com.clouway.bank.jdbc.doc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentTransactionRepository;
 import com.clouway.bank.core.Account;
 import com.clouway.bank.core.AccountRepository;
@@ -47,7 +46,7 @@ public class PersistentTransactionRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    provider = (Provider<Connection>) new ConnectionProvider("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
+    provider = new ConnectionProvider();
 
     transactionRepository = new PersistentTransactionRepository(accountRepository, provider, date);
 

@@ -1,6 +1,5 @@
 package com.clouway.bank.persistence;
 
-import com.clouway.bank.jdbc.doc.ConnectionProvider;
 import com.clouway.bank.adapter.jdbc.db.persistence.PersistentUserRepository;
 import com.clouway.bank.core.User;
 import com.clouway.bank.core.UserRepository;
@@ -22,7 +21,7 @@ public class PersistenceUserRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    connection = new ConnectionProvider("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
+    connection = new ConnectionProvider();
   }
 
   @Test

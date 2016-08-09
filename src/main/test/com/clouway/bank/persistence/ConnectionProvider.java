@@ -1,7 +1,6 @@
-package com.clouway.bank.jdbc.doc;
+package com.clouway.bank.persistence;
 
 import com.clouway.bank.core.ConnectionException;
-import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import java.sql.Connection;
@@ -12,21 +11,10 @@ import java.sql.SQLException;
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
 public class ConnectionProvider implements Provider<Connection> {
-  private final String db;
-  private final String user;
-  private final String password;
-
-  @Inject
-  public ConnectionProvider(String db, String user, String password) {
-    this.db = db;
-    this.user = user;
-    this.password = password;
-  }
-
   @Override
   public Connection get() {
     try {
-      return DriverManager.getConnection(db, user, password);
+      return DriverManager.getConnection("jdbc:postgresql://localhost/test", "postgres", "clouway.com");
     } catch (SQLException e) {
       throw new ConnectionException("Cannot connect to database");
     }
