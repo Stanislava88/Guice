@@ -15,6 +15,6 @@ public class EagerSingletonScope {
   }
 
   private String displayType() {
-    return scopeType + " type is instantiated before first invoking:";
+    return scopeType + " type is created before first invoking:";
   }
 }

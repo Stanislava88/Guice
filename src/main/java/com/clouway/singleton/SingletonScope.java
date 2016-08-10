@@ -12,6 +12,6 @@ public class SingletonScope {
   }
 
   private String displayType() {
-    return scopeType + " is instantiated after invoking";
+    return scopeType + " is created after invoking";
   }
 }
