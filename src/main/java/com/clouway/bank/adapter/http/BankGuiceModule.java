@@ -1,0 +1,54 @@
+package com.clouway.bank.adapter.http;
+
+import com.clouway.bank.adapter.jdbc.db.persistence.JdbcAdapterModule;
+import com.clouway.bank.core.CurrentDate;
+import com.clouway.bank.core.CurrentDateImplementation;
+import com.clouway.bank.core.CurrentTime;
+import com.clouway.bank.core.IdGenerator;
+import com.clouway.bank.core.User;
+import com.clouway.bank.core.Validator;
+import com.clouway.bank.utils.SessionIdFinder;
+import com.clouway.bank.utils.SessionIdGenerator;
+import com.clouway.bank.utils.Timeout;
+import com.clouway.bank.validator.AmountValidator;
+import com.clouway.bank.validator.UserValidator;
+import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
+import com.google.inject.name.Names;
+
+/**
+ * @author Stanislava Kaukova(sisiivanovva@gmail.com)
+ */
+public class BankGuiceModule extends AbstractModule {
+  @Override
+  protected void configure() {
+    install(new JdbcAdapterModule());
+
+    bind(CurrentDate.class).to(CurrentDateImplementation.class);
+
+    bind(IdGenerator.class).to(SessionIdGenerator.class);
+
+    bind(Integer.class)
+            .annotatedWith(Names.named("pageSize"))
+            .toInstance(5);
+
+    bind(Validator.class)
+            .annotatedWith(Names.named("amountValidator"))
+            .toInstance(new AmountValidator());
+  }
+
+  @Provides
+  Validator<User> getUserValidator() {
+    return new UserValidator();
+  }
+
+  @Provides
+  CurrentTime getCurrentTime() {
+    return new Timeout(1);
+  }
+
+  @Provides
+  SessionIdFinder getSessionId() {
+    return new SessionIdFinder("sessionId");
+  }
+}
