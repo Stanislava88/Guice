@@ -21,7 +21,7 @@ public class PersistenceUserRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    connection = new ConnectionProvider();
+    connection = new FakeConnectionProvider();
   }
 
   @Test

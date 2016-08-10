@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * @author Stanislava Kaukova(sisiivanovva@gmail.com)
  */
-public class ConnectionProvider implements Provider<Connection> {
+public class FakeConnectionProvider implements Provider<Connection> {
   @Override
   public Connection get() {
     try {

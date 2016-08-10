@@ -46,7 +46,7 @@ public class PersistentTransactionRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    provider = new ConnectionProvider();
+    provider = new FakeConnectionProvider();
 
     transactionRepository = new PersistentTransactionRepository(accountRepository, provider, date);
 

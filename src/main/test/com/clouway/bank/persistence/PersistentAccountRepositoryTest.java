@@ -26,7 +26,7 @@ public class PersistentAccountRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    provider = new ConnectionProvider();
+    provider = new FakeConnectionProvider();
 
     accountRepository = new PersistentAccountRepository(provider);
 

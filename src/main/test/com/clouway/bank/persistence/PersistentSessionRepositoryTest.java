@@ -34,7 +34,7 @@ public class PersistentSessionRepositoryTest {
 
   @Before
   public void setUp() throws Exception {
-    provider = new ConnectionProvider();
+    provider = new FakeConnectionProvider();
 
     statement = provider.get().prepareStatement("truncate table sessions;");
     statement.executeUpdate();
